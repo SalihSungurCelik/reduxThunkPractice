@@ -9,13 +9,16 @@ import {
 } from "../redux/actions/productActions";
 import Loading from "../components/Loading";
 import Card from "../components/Card";
+import { getBasket } from "../redux/actions/basketActions";
 
 const MainPage = () => {
   const dispatch = useDispatch();
   const state = useSelector((store) => store.product);
+
   // console.log(state);
   useEffect(() => {
     dispatch(getProducts());
+    dispatch(getBasket());
   }, []);
 
   return (
